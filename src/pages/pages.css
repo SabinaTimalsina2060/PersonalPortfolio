@@ -1,0 +1,263 @@
+/* ===== HOME PAGE ===== */
+
+.home-container {
+  background: linear-gradient(135deg, #e8dcf7 0%, #d8c8f0 50%, #ead5f5 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 60px;
+  overflow: hidden;
+}
+
+.hero-section {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* ===== LEFT CONTENT ===== */
+.hero-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.hello-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px dashed #9A7DFF;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 14px;
+  color: #4A4A4A;
+  font-weight: 500;
+}
+
+.hero-title {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  color: #2d2d2d;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.hero-title .highlight {
+  color: #8B5CF6;
+}
+
+.hero-description {
+  font-size: 15px;
+  color: #6b6b6b;
+  line-height: 1.6;
+  max-width: 420px;
+  margin: 0;
+}
+
+/* ===== CTA BUTTONS ===== */
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.cta-button,
+.cta-button-outline {
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.cta-button {
+  background-color: #8B5CF6;
+  color: white;
+  border: 2px solid #8B5CF6;
+}
+
+.cta-button:hover {
+  background-color: #7C3AED;
+  border-color: #7C3AED;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+}
+
+.cta-button-outline {
+  background-color: transparent;
+  border: 2px solid #9A7DFF;
+  color: #8B5CF6;
+}
+
+.cta-button-outline:hover {
+  background-color: #8B5CF6;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-arrow {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ===== RIGHT IMAGE ===== */
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.profile-wrapper {
+  position: relative;
+  width: 380px;
+  height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.profile-bg-circle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.profile-img {
+  position: relative;
+  z-index: 1;
+  width: 320px;
+  height: 400px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+  filter: drop-shadow(0 10px 30px rgba(139, 92, 246, 0.2));
+}
+
+/* ===== FLOATING BADGES ===== */
+.badge {
+  position: absolute;
+  background-color: #8B5CF6;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  white-space: nowrap;
+}
+
+.badge-top-right {
+  top: 30px;
+  right: 0px;
+  background: #f3f0ff;
+  color: #8B5CF6;
+  border: 1.5px solid #c4b5fd;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.badge-circle {
+  font-size: 20px;
+  color: #8B5CF6;
+}
+
+.badge-bottom-center {
+  bottom: 20px;
+  left: 0px;
+  background: white;
+  color: #8B5CF6;
+  border: 1.5px solid #c4b5fd;
+  font-size: 13px;
+}
+
+.badge-mid-right {
+  bottom: 100px;
+  right: -10px;
+  font-size: 13px;
+}
+
+/* ===== DECORATIVE ELEMENTS ===== */
+.deco-plus {
+  position: absolute;
+  font-size: 24px;
+  color: #c4b5fd;
+  font-weight: 300;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+.top-plus {
+  top: 10px;
+  left: 30px;
+}
+
+.bottom-plus {
+  bottom: 30px;
+  right: 30px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .home-container {
+    padding: 40px 24px;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-left {
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .profile-wrapper {
+    width: 280px;
+    height: 320px;
+  }
+
+  .profile-bg-circle {
+    width: 230px;
+    height: 230px;
+  }
+
+  .profile-img {
+    width: 240px;
+    height: 300px;
+  }
+}

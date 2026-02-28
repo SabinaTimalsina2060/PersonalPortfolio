@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  /* Navbar container with fixed height */
+  .navbar-div {
+    @apply flex items-center justify-between bg-[#E1D3F7] p-4  w-full  mx-auto h-[60px]; /* Fixed height for navbar */
+  }
+
+  /* Logo styling with adjusted size */
+  .main-logo {
+    @apply w-16 h-16; /* Adjusted logo size (50px) */
+  }
+
+  /* Navigation links container */
+  .nav-links {
+    @apply flex space-x-8 text-[#4A4A4A] font-semibold;
+  }
+
+  /* Navbar links styling */
+  .nav-links a {
+    @apply text-[#4A4A4A] hover:text-[#9A7DFF] transition-all duration-200;
+  }
+
+  /* Contact Me button styling */
+  .contact-btn {
+    @apply bg-[#9A7DFF] text-white px-6 py-2 rounded-full hover:bg-[#6A56C5] transition duration-300;
+  }
+
+  /* Hamburger menu (mobile) */
+  .hamburger-button {
+    @apply md:hidden text-[#4A4A4A] text-3xl;
+  }
+
+  /* Mobile menu styling */
+  .mobile-menu {
+    @apply md:hidden bg-[#E1D3F7] text-[#4A4A4A] p-4 rounded-b-3xl mt-2;
+  }
+
+  /* Mobile menu items */
+  .mobile-menu a {
+    @apply block py-2 hover:text-[#9A7DFF] transition-all duration-200;
+  }
+}
