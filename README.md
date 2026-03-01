@@ -69,7 +69,6 @@ src/
 🤝 Contact & Connect
 
 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-
     Website: timalsinasabina.com.np
 
     LinkedIn: [Your LinkedIn Profile Link]
