@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================
+   NAVBAR
+   ===================== */
+
+.navbar {
+  font-family: 'DM Sans', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 68px;
+  background: rgba(225, 211, 247, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(196, 181, 253, 0.2);
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar-scrolled {
+  background: rgba(237, 231, 251, 0.92);
+  box-shadow: 0 4px 24px rgba(139, 92, 246, 0.1);
+  border-bottom-color: rgba(196, 181, 253, 0.4);
+  height: 60px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.navbar-logo img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover img {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #4a3f7a;
+  text-decoration: none;
+  border-radius: 50px;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #7C3AED;
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.nav-link-active {
+  color: #7C3AED;
+  background: rgba(139, 92, 246, 0.1);
+  font-weight: 600;
+}
+
+.nav-link-underline {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #c4b5fd, #8B5CF6);
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover .nav-link-underline,
+.nav-link-active .nav-link-underline {
+  width: 50%;
+}
+
+.navbar-cta {
+  display: flex;
+  align-items: center;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+  border-radius: 50px;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.35);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.contact-btn:hover {
+  background: linear-gradient(135deg, #9d6fff, #8B5CF6);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.45);
+  transform: translateY(-2px);
+}
+
+.contact-btn:hover svg {
+  transform: translateX(3px);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px solid rgba(196, 181, 253, 0.5);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.hamburger:hover {
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.hamburger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #7C3AED;
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center;
+}
+
+.hamburger-open .hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger-open .hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@keyframes mobileMenuIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mobileLinkIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding: 0 16px 16px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.mobile-overlay-open {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.mobile-menu {
+  background: rgba(237, 231, 251, 0.97);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(196, 181, 253, 0.4);
+  border-radius: 20px;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 16px 48px rgba(139, 92, 246, 0.15);
+  animation: mobileMenuIn 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.mobile-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #4a3f7a;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: background 0.2s ease, color 0.2s ease;
+  animation: mobileLinkIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.mobile-link:hover {
+  background: rgba(139, 92, 246, 0.08);
+  color: #7C3AED;
+}
+
+.mobile-link-active {
+  background: rgba(139, 92, 246, 0.1);
+  color: #7C3AED;
+  font-weight: 600;
+}
+
+.mobile-link-num {
+  font-size: 11px;
+  font-weight: 600;
+  color: #c4b5fd;
+  letter-spacing: 0.05em;
+  width: 22px;
+}
+
+.mobile-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 14px 22px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.35);
+  animation: mobileLinkIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.35s;
+  transition: all 0.25s ease;
+}
+
+.mobile-contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(139, 92, 246, 0.45);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+  .nav-links,
+  .navbar-cta {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .mobile-overlay {
+    display: block;
+  }
+}
